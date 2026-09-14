@@ -7,7 +7,7 @@ from backtesting.lib import FractionalBacktest
 
 class BacktestTests(unittest.TestCase):
     def setUp(self):
-        index = pd.date_range('2024-01-01', periods=100*96, freq='15min', tz='UTC')
+        index = pd.date_range('2024-01-01', periods=170*24, freq='1h', tz='UTC')
         price = 30000+np.arange(len(index))*.1
         self.data = pd.DataFrame(dict(Open=price, High=price+10, Low=price-10,
                                       Close=price+1, Volume=100.), index=index)
@@ -29,6 +29,7 @@ class BacktestTests(unittest.TestCase):
         frame['Signal'] = 1
         frame['Score'] = 80
         frame['Distance'] = .01
+        frame['AtrRatio'] = .006
         def run(enabled):
             return FractionalBacktest(frame, Sniper, fractional_unit=.000001,
                                       cash=10000, commission=.0015,
