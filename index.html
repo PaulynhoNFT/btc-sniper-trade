@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#07090d" />
+  <meta name="description" content="Terminal conservador de inteligência para BTC/USDT." />
+  <title>BTC Sniper Intelligence</title>
+  <link rel="preconnect" href="https://api.binance.com">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="coin">₿</span><span>BTC<span>SNIPER</span></span></a>
+      <nav>
+        <button class="nav active" data-view="overview">▦ <span>Overview</span></button>
+        <button class="nav" data-view="timeframes">⌁ <span>Multi-timeframe</span></button>
+        <button class="nav" data-view="risk">◎ <span>Gestão de risco</span></button>
+        <button class="nav" data-view="journal">◫ <span>Sniper Journal</span></button>
+      </nav>
+      <div class="discipline"><small>FILOSOFIA</small><strong>Precisão.<br>Paciência.<br>Disciplina.</strong></div>
+    </aside>
+
+    <main>
+      <header>
+        <div><p class="eyebrow">INTELLIGENCE TERMINAL</p><h1>BTC / USDT</h1></div>
+        <div class="live"><i></i><span id="connection">Conectando à Binance</span></div>
+      </header>
+
+      <section class="ticker-grid">
+        <article><span>PREÇO ATUAL</span><strong id="price">—</strong><em id="change">—</em></article>
+        <article><span>VOLUME 24H</span><strong id="volume">—</strong><em>BTCUSDT Spot</em></article>
+        <article><span>VOLATILIDADE (ATR)</span><strong id="atr">—</strong><em>15 minutos</em></article>
+        <article><span>ÚLTIMA ATUALIZAÇÃO</span><strong id="updated">—</strong><em>Atualização a cada 30s</em></article>
+      </section>
+
+      <section id="overview" class="view active">
+        <div class="signal-card">
+          <div class="signal-top"><div><p class="eyebrow">DECISÃO DO MOTOR</p><h2 id="decision">ANALISANDO</h2></div><div class="score"><span id="score">—</span><small>/ 100</small></div></div>
+          <p id="decisionText">Carregando candles e calculando os filtros do sistema.</p>
+          <div class="meter"><i id="meter"></i></div>
+          <div class="levels">
+            <div><span>ENTRADA</span><b id="entry">—</b></div><div><span>STOP</span><b id="stop">—</b></div>
+            <div><span>TP1 · 1R</span><b id="tp1">—</b></div><div><span>TP2 · 2R</span><b id="tp2">—</b></div><div><span>TP3 · 3R</span><b id="tp3">—</b></div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">ESTRUTURA</p><h3>Confluências técnicas</h3></div><span class="badge">15M</span></div><div id="checks" class="checks"></div></article>
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">TRANSPARÊNCIA</p><h3>Por que não entrar?</h3></div></div><ul id="vetoes" class="vetoes"><li>Aguardando dados…</li></ul></article>
+        </div>
+      </section>
+
+      <section id="timeframes" class="view">
+        <article class="panel"><div class="panel-title"><div><p class="eyebrow">TRIPLE SCREEN</p><h3>Alinhamento multi-timeframe</h3></div></div><div id="tfCards" class="tf-grid"></div></article>
+        <article class="panel disclaimer"><strong>Regra central:</strong> nenhum sinal é liberado contra a tendência dominante de 4H e 1D.</article>
+      </section>
+
+      <section id="risk" class="view">
+        <div class="two-col">
+          <article class="panel"><p class="eyebrow">CALCULADORA</p><h3>Tamanho da posição</h3><label>Capital (USDT)<input id="capital" type="number" value="10000" min="1"></label><label>Risco por trade (%)<input id="riskPct" type="number" value="1" min=".1" max="2" step=".1"></label><button id="calculate" class="primary">Calcular posição</button></article>
+          <article class="panel result"><p class="eyebrow">LIMITE DE RISCO</p><strong id="riskAmount">$100.00</strong><span>Valor máximo em risco</span><strong id="positionSize">—</strong><span>Tamanho estimado da posição</span><p>O cálculo só fica disponível quando houver uma configuração válida.</p></article>
+        </div>
+      </section>
+
+      <section id="journal" class="view">
+        <article class="panel"><div class="panel-title"><div><p class="eyebrow">PAPER TRADING</p><h3>Diário de sinais</h3></div><button id="saveSignal" class="primary">Salvar snapshot</button></div><div class="stats"><div><b id="totalTrades">0</b><span>Snapshots</span></div><div><b id="wins">0</b><span>Gains</span></div><div><b id="losses">0</b><span>Losses</span></div></div><div id="journalRows" class="journal-empty">Nenhum snapshot salvo neste navegador.</div></article>
+      </section>
+
+      <footer>Dados públicos da Binance · Ferramenta educacional, não é recomendação financeira e não executa ordens.</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
