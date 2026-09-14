@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),E=require('./engine.js');
+const b=Array.from({length:200},(_,i)=>({t:i*3600000,o:100+i,h:102+i,l:99+i,c:101+i,v:100}));
+const a=E.analyze(b);assert.equal(a.rsi,100);assert.equal(a.adx,100);assert(a.atr>0);
+const flat=b.map(x=>({...x,o:100,h:100,l:100,c:100}));assert.equal(E.analyze(flat).rsi,50);
+const t={...a,direction:1,adx:30},c={...a,zoneLong:true,rsi:25,bearPower:-1},e={...a,macUp:true,prevRsi:25,rsi:35,prevK:10,prevD:20,k:30,d:25,bull:true,volume:2,breakUp:true,atrOK:true,bbOK:true};
+const ctx={fresh:true,spread:.0001,macroVerified:true,macroBlackout:false,derivativesConfirmed:true,riskAllowed:true};
+assert(E.evaluate([t,c,e],'swing',ctx).valid);
+assert(!E.evaluate([t,c,e],'swing',{}).valid);
+assert(!E.evaluate([{...t,adx:19},c,e],'swing',ctx).technical);
+assert(!E.evaluate([t,c,e],'swing',{...ctx,macroBlackout:true}).valid);
+assert(!E.evaluate([t,c,e],'swing',{...ctx,price:e.x.c+2*e.atr}).valid);
+assert(!E.evaluate([t,c,{...e,macUp:false,prevRsi:40,prevK:40,bull:false,breakUp:false}],'swing',ctx).technical);
+console.log('Engine checks passed');
