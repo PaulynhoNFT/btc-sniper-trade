@@ -31,11 +31,12 @@
       <section class="ticker-grid">
         <article><span>PREÇO ATUAL</span><strong id="price">—</strong><em id="change">—</em></article>
         <article><span>VOLUME 24H</span><strong id="volume">—</strong><em>BTCUSDT Spot</em></article>
-        <article><span>VOLATILIDADE (ATR)</span><strong id="atr">—</strong><em>15 minutos</em></article>
+        <article><span>VOLATILIDADE (ATR)</span><strong id="atr">—</strong><em>Timeframe de execução</em></article>
         <article><span>ÚLTIMA ATUALIZAÇÃO</span><strong id="updated">—</strong><em>Atualização a cada 30s</em></article>
       </section>
 
       <section id="overview" class="view active">
+<article class="panel"><div class="panel-title"><h3>Estratégia Elder · BTC/USDT</h3><select id="profile" aria-label="Perfil"><option value="swing">Swing · 1D / 4H / 1H</option><option value="scalp">Scalp · 1H / 15M / 5M</option></select><select id="zoom" aria-label="Candles visíveis"><option>60</option><option selected>120</option><option>240</option></select></div><canvas id="strategyChart" style="width:100%;height:400px" aria-label="Candles BTCUSDT e EMA13"></canvas><p id="chartCaption"></p></article>
         <div class="signal-card">
           <div class="signal-top"><div><p class="eyebrow">DECISÃO DO MOTOR</p><h2 id="decision">ANALISANDO</h2></div><div class="score"><span id="score">—</span><small>/ 100</small></div></div>
           <p id="decisionText">Carregando candles e calculando os filtros do sistema.</p>
@@ -47,14 +48,14 @@
         </div>
 
         <div class="two-col">
-          <article class="panel"><div class="panel-title"><div><p class="eyebrow">ESTRUTURA</p><h3>Confluências técnicas</h3></div><span class="badge">15M</span></div><div id="checks" class="checks"></div></article>
+          <article class="panel"><div class="panel-title"><div><p class="eyebrow">ESTRUTURA</p><h3>Confluências técnicas</h3></div><span class="badge">ELDER</span></div><div id="checks" class="checks"></div></article>
           <article class="panel"><div class="panel-title"><div><p class="eyebrow">TRANSPARÊNCIA</p><h3>Por que não entrar?</h3></div></div><ul id="vetoes" class="vetoes"><li>Aguardando dados…</li></ul></article>
         </div>
       </section>
 
       <section id="timeframes" class="view">
         <article class="panel"><div class="panel-title"><div><p class="eyebrow">TRIPLE SCREEN</p><h3>Alinhamento multi-timeframe</h3></div></div><div id="tfCards" class="tf-grid"></div></article>
-        <article class="panel disclaimer"><strong>Regra central:</strong> nenhum sinal é liberado contra a tendência dominante de 4H e 1D.</article>
+        <article class="panel disclaimer"><strong>Regra central:</strong> nenhum sinal é liberado contra a tendência da Tela 1 do perfil selecionado.</article>
       </section>
 
       <section id="risk" class="view">
@@ -65,12 +66,12 @@
       </section>
 
       <section id="journal" class="view">
-        <article class="panel"><div class="panel-title"><div><p class="eyebrow">PAPER TRADING</p><h3>Diário de sinais</h3></div><button id="saveSignal" class="primary">Salvar snapshot</button></div><div class="stats"><div><b id="totalTrades">0</b><span>Snapshots</span></div><div><b id="wins">0</b><span>Gains</span></div><div><b id="losses">0</b><span>Losses</span></div></div><div id="journalRows" class="journal-empty">Nenhum snapshot salvo neste navegador.</div></article>
+        <article class="panel"><div class="panel-title"><div><p class="eyebrow">REGISTRO DE ANÁLISES</p><h3>Diário de sinais</h3></div><button id="saveSignal" class="primary">Salvar snapshot</button></div><div class="stats"><div><b id="totalTrades">0</b><span>Snapshots</span></div><div><b id="wins">0</b><span>Gains não apurados</span></div><div><b id="losses">0</b><span>Losses não apurados</span></div></div><div id="journalRows" class="journal-empty">Nenhum snapshot salvo neste navegador.</div></article>
       </section>
 
       <footer>Dados públicos da Binance · Ferramenta educacional, não é recomendação financeira e não executa ordens.</footer>
     </main>
   </div>
-  <script src="app.js"></script>
+  <script src="engine.js"></script><script src="app.js"></script>
 </body>
 </html>
