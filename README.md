@@ -1,27 +1,11 @@
-# BTC Sniper Intelligence Terminal
+# BTC Sniper — Elder 1.0
 
-Terminal web responsivo para análise conservadora de **BTC/USDT**, usando dados públicos reais da Binance.
+Terminal BTCUSDT com gráfico de candles, EMA13, níveis técnicos condicionais e perfis Swing/Scalp.
 
-## Recursos atuais
+Motor compartilhado entre navegador (`engine.js`) e backtesting.py via Node. Leia [BACKTEST.md](BACKTEST.md) para regras, execução, testes e limitações.
 
-- Preço, variação e volume real de BTCUSDT.
-- Triple Screen: execução em 15M e confirmação em 4H e 1D.
-- EMA 20/50, RSI 14, ATR 14 e volume relativo.
-- Motor de score e painel auditável “Por que não entrar?”.
-- Calculadora de risco e posição.
-- Diário local para snapshots de paper trading.
-- Atualização automática a cada 30 segundos.
+Abra index.html por um servidor HTTP estático. Requer acesso aos endpoints públicos da Binance. Não é necessário fornecer chaves.
 
-## Regras de segurança
+As confirmações macro, derivativos e estado de risco da conta ainda não estão integradas: sinais ao vivo permanecem bloqueados. O diário guarda observações, não apura P&L. O teste técnico anual Swing Elder não encontrou entradas; isso não demonstra rentabilidade. Relatórios da versão experimental anterior permanecem em backtests/2026-09-14; o novo está em backtests/elder-1.0.0.
 
-- Qualidade acima de quantidade.
-- Estado padrão **AGUARDAR** quando faltam confirmações.
-- Nenhum sinal contra a tendência dominante.
-- Fontes indisponíveis não são inventadas: Open Interest, funding e macro permanecem como veto até existir backend verificado.
-- O terminal não envia ordens à Binance.
-
-## Executar
-
-Abra `index.html` ou sirva a pasta com qualquer servidor estático.
-
-> Ferramenta educacional. Não constitui recomendação financeira.
+Não executa ordens. Validação visual no navegador ainda pendente: instalação de Chromium indisponível no ambiente de desenvolvimento.
